@@ -4,10 +4,10 @@
 void Ordena(int inicio, int fim, int *vet, int cont)
 {
     int i,j,menor=0;    
-    Particao(inicio, fim, &i, &j, vet);
     if (cont==0){
         menor=compara(inicio,fim,vet); 
     }
+    Particao(inicio, fim, &i, &j, vet);
     if (menor==0)
     {
         if (inicio < j) 
@@ -36,6 +36,7 @@ int compara(int inicio, int fim, int *vet){
     j = fim;
     media=(i + j)/2;
     pivo = vet[media];
+    printf("pivo do vetor inicial eh %d\n",pivo);
     for ( int k = 0; k < media; k++)
     {
         cont_esq+=1;
@@ -45,13 +46,14 @@ int compara(int inicio, int fim, int *vet){
     {
         cont_dir+=1;
     }
-    printf("esq=%d\ndir=%d\n",cont_esq,cont_dir);
    if (cont_esq <= cont_dir )
    {
+       printf("lado menor esqueda");
        return 0;
    }
    else
    {
+       printf("lado menor esquerda");
        return 1;
    }
    
@@ -83,7 +85,7 @@ void Particao(int inicio, int fim,int *i, int *j, int *vet){
 }
 int main(){
     int i;
-    int vet[] = {8,3,15,6,7,4,2,1};
+    int vet[] = {4,2,1,0,6,4,5,8};
     size_t N = sizeof(vet)/sizeof(vet[0]);
     QuickSort(&vet,N);
     printf("\nVetor ordenado:\n");
