@@ -1,18 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
- 
-void Ordena(int inicio, int fim, int *vet,int esq, int dir)
+#include <time.h>
+//funçao abaixor vai ver qual lado é menor do vetor 
+void Ordena(int inicio, int fim, int vet[],int esq, int dir)
 {
     int i,j;
+    //dividir o vetor no meio selecionando o pivo
     Particao(inicio, fim, &i, &j, vet);
+    //chama funçao compara para contar o lado esq e dir do pivo.
     compara(inicio,fim,&esq,&dir);
+    // ifs abaixo vai compara todos os casos possivei esquerda menor, direita menor ou igual os numeros do contador
     if (esq < dir)
     {
         esq++;
         if (esq < dir) Ordena(inicio, j, vet,esq,dir);        
     }
-    if (dir > esq)
-    {
+    if (dir < esq)
+    {   
         dir--;
         if (dir > esq) Ordena(i, fim, vet,esq,dir);
     }
@@ -22,28 +26,28 @@ void Ordena(int inicio, int fim, int *vet,int esq, int dir)
         if (i < fim) Ordena(i, fim, vet,esq,dir);      
     }
 }
-void QuickSort(int *vet, int n)
+void QuickSort(int vet[], int n)
 {
     Ordena(0, n-1, vet,0,0);
 }
 
-// ESSA FUNÇAO VAI COMPARAR O MENOR LADO ANTES OU DEPOIS DO PIVO
+// Essa funçao vai conta o lado direito e esquerdo vetor 
 void compara(int inicio, int fim, int *esq, int *dir){
-    int pivo,i,j,media;
+    int i,j,meio;
     i = inicio;
     j = fim;
-    media=(i + j)/2;
-    for ( int k = i; k < media; k++)
+    meio=(i + j)/2;
+    for ( int k = i; k < meio; k++)
     {
         *esq+=1;
     }
-    for ( int h = j; h > media; h--)
+    for ( int h = j; h > meio; h--)
     {
         *dir+=1;
  
     } 
 }
- 
+ // partiçao é normal como todos os casos do partiçao do quicksort
 void Particao(int inicio, int fim,int *i, int *j, int *vet){
     int pivo, aux;
     *i = inicio;
@@ -68,10 +72,20 @@ void Particao(int inicio, int fim,int *i, int *j, int *vet){
     }while (*i <= *j);
 }
 int main(){
-    int i;
-    int vet[]={2,1,3,5,5,8,7,4,6};
-    size_t N = sizeof(vet)/sizeof(vet[0]);
-    printf("\nN=%d\n",N);
+    int i,N;
+    printf("Digite o tamanho do vetor:");
+    scanf("%d",&N);
+    int vet[N];
+    srand(time(NULL));
+    for ( i = 0; i < N; i++)
+    {
+        vet[i] = rand() % 30;
+    }
+    printf("\nVetor nao ordenado:\n");
+    for ( i = 0; i < N; i++)
+    {
+        printf("%d ",vet[i]);
+    }
     QuickSort(&vet,N);
     printf("\nVetor ordenado:\n");
     for ( i = 0; i < N; i++)
