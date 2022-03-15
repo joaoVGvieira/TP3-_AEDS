@@ -50,7 +50,6 @@ void Quicksort_Insercao(int vetor[], int inicio, int fim)
 {
   while (inicio < fim)
     {
-    // colocar 100 para m=100;
     // caso (fim - inicio) mais um for menor que 10, ira usar insertion_sort caso o contrario ira usar quicksort,
     if (fim-inicio + 1 < 10)
       {
