@@ -1,63 +1,47 @@
 #include <stdio.h>
 #include <stdlib.h>
  
-void Ordena(int inicio, int fim, int *vet, int cont)
+void Ordena(int inicio, int fim, int *vet,int esq, int dir)
 {
-    int i,j,menor=0;    
-    if (cont==0){
-        menor=compara(inicio,fim,vet); 
-    }
+    int i,j;
     Particao(inicio, fim, &i, &j, vet);
-    if (menor==0)
+    compara(inicio,fim,&esq,&dir);
+    if (esq < dir)
     {
-        if (inicio < j) 
-        {
-            Ordena(inicio, j, vet,1);
-        }
-        menor++;
+        esq++;
+        if (esq < dir) Ordena(inicio, j, vet,esq,dir);        
     }
-    if(menor==1)
+    if (dir > esq)
     {
-        if (i < fim) 
-        {
-            Ordena(i, fim, vet,1); 
-        }
+        dir--;
+        if (dir > esq) Ordena(i, fim, vet,esq,dir);
+    }
+    if(esq==dir)
+    {
+        if (inicio < j) Ordena(inicio, j, vet,esq,dir);
+        if (i < fim) Ordena(i, fim, vet,esq,dir);      
     }
 }
 void QuickSort(int *vet, int n)
 {
-    Ordena(0, n-1, vet,0);
+    Ordena(0, n-1, vet,0,0);
 }
 
 // ESSA FUNÇAO VAI COMPARAR O MENOR LADO ANTES OU DEPOIS DO PIVO
-int compara(int inicio, int fim, int *vet){
-    int pivo,i,j,cont_esq=0,cont_dir=0,media=0;
+void compara(int inicio, int fim, int *esq, int *dir){
+    int pivo,i,j,media;
     i = inicio;
     j = fim;
     media=(i + j)/2;
-    pivo = vet[media];
-    printf("pivo do vetor inicial eh %d\n",pivo);
-    for ( int k = 0; k < media; k++)
+    for ( int k = i; k < media; k++)
     {
-        cont_esq+=1;
-
+        *esq+=1;
     }
-    for ( int h = fim; h > media; h--)
+    for ( int h = j; h > media; h--)
     {
-        cont_dir+=1;
-    }
-   if (cont_esq <= cont_dir )
-   {
-       printf("lado menor esqueda");
-       return 0;
-   }
-   else
-   {
-       printf("lado menor esquerda");
-       return 1;
-   }
-   
-   
+        *dir+=1;
+ 
+    } 
 }
  
 void Particao(int inicio, int fim,int *i, int *j, int *vet){
@@ -85,8 +69,9 @@ void Particao(int inicio, int fim,int *i, int *j, int *vet){
 }
 int main(){
     int i;
-    int vet[] = {4,2,1,0,6,4,5,8};
+    int vet[]={2,1,3,5,5,8,7,4,6};
     size_t N = sizeof(vet)/sizeof(vet[0]);
+    printf("\nN=%d\n",N);
     QuickSort(&vet,N);
     printf("\nVetor ordenado:\n");
     for ( i = 0; i < N; i++)
