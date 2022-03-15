@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+//chama o quick normal para achar o pivo e ordernar o vetor
 void Quick(int vetor[], int inicio, int fim){
    
    int pivo, aux, i, j, meio;
@@ -20,7 +21,7 @@ void Quick(int vetor[], int inicio, int fim){
          j-= 1;
       }
    }while(j > i);
-   
+   //chama recursivamente o quick
    if(inicio < j) Quick(vetor, inicio, j);
    if(i < fim) Quick(vetor, i, fim);   
 
