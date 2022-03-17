@@ -16,8 +16,10 @@ void Particao(int Esq, int Dir, int *i, int *j, int *A){
     int num = *i - *j;
     int mediana;
 
+    // ENCONTRA A MEDIANA ENTRE 3 ELEMENTOS 
     if(num >= k){
         int posicao[k];
+        // GERA 3 POSIÇÕES ALEATÓRIAS PARA CALCULAR MEDIANA
         for(int i=0; i<k; i++){
             posicao[i] = rand() % num;  
         }
@@ -59,6 +61,7 @@ void Particao(int Esq, int Dir, int *i, int *j, int *A){
     }
     pivo = A[mediana];
 
+    //ORDENA A PARTIÇÃO DO VETOR
     do{
         while(pivo > A[*i]){
             (*i)++;
@@ -77,6 +80,7 @@ void Particao(int Esq, int Dir, int *i, int *j, int *A){
     }while(*i <= *j);
 }
 
+// CHAMA RECURSIVAMENTE O QUICKSORT
 void Ordena(int Esq, int Dir, int *A){
     
     int i, j;
