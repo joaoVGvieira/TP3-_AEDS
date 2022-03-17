@@ -18,6 +18,9 @@ void insertion_sort(int vetor[],int inicio,int fim)
     }
  
 }
+/* funçao partição do quick sort que vai retorna j que é o numero inicio mais as alterações feitas quando 
+vetor[i] é menor que o pivo; 
+*/
 int particao(int vetor[],int inicio, int fim){
    
    int pivo, aux, i, j;
@@ -47,15 +50,15 @@ void Quicksort_Insercao(int vetor[], int inicio, int fim)
 {
   while (inicio < fim)
     {
-        // colocar 100 para m=100;
-    if (fim-inicio + 1 < 2)
+    // caso (fim - inicio) mais um for menor que 10, ira usar insertion_sort caso o contrario ira usar quicksort,
+    if (fim-inicio + 1 < 10)
       {
         insertion_sort(vetor,inicio, fim);
       break;
     }
  
     else
-        { // encontrar pivor para comer usar o quicksort 
+        { // encontrar pivor para usar o quicksort 
           int pivo = particao(vetor,inicio,fim) ;
           if (pivo-inicio<fim-pivo)
         {
@@ -74,13 +77,28 @@ void Quicksort_Insercao(int vetor[], int inicio, int fim)
 }
 
 int main(){
-    int vet[] = {3,1,2,5} ;
-    size_t N = sizeof(vet)/sizeof(vet[0]);
-    Quicksort_Insercao(vet,0,N-1);
-    int i;
+    int i,N;
+    printf("Digite o tamanho do vetor:");
+    scanf("%d",&N);
+    int vet[N];
+    srand(time(NULL));
     for ( i = 0; i < N; i++)
     {
-        printf("%d ,",vet[i]);
+        vet[i] = rand() % 30;
     }
+    printf("\nVetor nao ordenado:\n");
+    for ( i = 0; i < N; i++)
+    {
+        printf("%d ",vet[i]);
+    }
+    //chama o quicksort
+    Quicksort_Insercao(vet,0,N-1);
+    printf("\nVetor ordenado:\n");
+    for ( i = 0; i < N; i++)
+    {
+        printf("%d ",vet[i]);
+    }
+    printf("\n");
+    
     
 }

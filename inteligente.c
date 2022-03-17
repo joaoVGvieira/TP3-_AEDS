@@ -1,65 +1,53 @@
 #include <stdio.h>
 #include <stdlib.h>
- 
-void Ordena(int inicio, int fim, int *vet, int cont)
+#include <time.h>
+//funçao abaixor vai ver qual lado é menor do vetor 
+void Ordena(int inicio, int fim, int vet[],int esq, int dir)
 {
-    int i,j,menor=0;    
-    if (cont==0){
-        menor=compara(inicio,fim,vet); 
-    }
+    int i,j;
+    //dividir o vetor no meio selecionando o pivo
     Particao(inicio, fim, &i, &j, vet);
-    if (menor==0)
+    //chama funçao compara para contar o lado esq e dir do pivo.
+    compara(inicio,fim,&esq,&dir);
+    // ifs abaixo vai compara todos os casos possivei esquerda menor, direita menor ou igual os numeros do contador
+    if (esq < dir)
     {
-        if (inicio < j) 
-        {
-            Ordena(inicio, j, vet,1);
-        }
-        menor++;
+        esq++;
+        if (esq < dir) Ordena(inicio, j, vet,esq,dir);        
     }
-    if(menor==1)
+    if (dir < esq)
+    {   
+        dir--;
+        if (dir > esq) Ordena(i, fim, vet,esq,dir);
+    }
+    if(esq==dir)
     {
-        if (i < fim) 
-        {
-            Ordena(i, fim, vet,1); 
-        }
+        if (inicio < j) Ordena(inicio, j, vet,esq,dir);
+        if (i < fim) Ordena(i, fim, vet,esq,dir);      
     }
 }
-void QuickSort(int *vet, int n)
+void QuickSort(int vet[], int n)
 {
-    Ordena(0, n-1, vet,0);
+    Ordena(0, n-1, vet,0,0);
 }
 
-// ESSA FUNÇAO VAI COMPARAR O MENOR LADO ANTES OU DEPOIS DO PIVO
-int compara(int inicio, int fim, int *vet){
-    int pivo,i,j,cont_esq=0,cont_dir=0,media=0;
+// Essa funçao vai conta o lado direito e esquerdo vetor 
+void compara(int inicio, int fim, int *esq, int *dir){
+    int i,j,meio;
     i = inicio;
     j = fim;
-    media=(i + j)/2;
-    pivo = vet[media];
-    printf("pivo do vetor inicial eh %d\n",pivo);
-    for ( int k = 0; k < media; k++)
+    meio=(i + j)/2;
+    for ( int k = i; k < meio; k++)
     {
-        cont_esq+=1;
-
+        *esq+=1;
     }
-    for ( int h = fim; h > media; h--)
+    for ( int h = j; h > meio; h--)
     {
-        cont_dir+=1;
-    }
-   if (cont_esq <= cont_dir )
-   {
-       printf("lado menor esqueda");
-       return 0;
-   }
-   else
-   {
-       printf("lado menor esquerda");
-       return 1;
-   }
-   
-   
-}
+        *dir+=1;
  
+    } 
+}
+ // partiçao é normal como todos os casos do partiçao do quicksort
 void Particao(int inicio, int fim,int *i, int *j, int *vet){
     int pivo, aux;
     *i = inicio;
@@ -84,9 +72,20 @@ void Particao(int inicio, int fim,int *i, int *j, int *vet){
     }while (*i <= *j);
 }
 int main(){
-    int i;
-    int vet[] = {4,2,1,0,6,4,5,8};
-    size_t N = sizeof(vet)/sizeof(vet[0]);
+    int i,N;
+    printf("Digite o tamanho do vetor:");
+    scanf("%d",&N);
+    int vet[N];
+    srand(time(NULL));
+    for ( i = 0; i < N; i++)
+    {
+        vet[i] = rand() % 30;
+    }
+    printf("\nVetor nao ordenado:\n");
+    for ( i = 0; i < N; i++)
+    {
+        printf("%d ",vet[i]);
+    }
     QuickSort(&vet,N);
     printf("\nVetor ordenado:\n");
     for ( i = 0; i < N; i++)
