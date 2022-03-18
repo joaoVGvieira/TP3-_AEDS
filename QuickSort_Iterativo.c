@@ -1,5 +1,7 @@
 #include <stdio.h>
  
+ int comp = 0, mov = 0;
+
 // Troca dois elementos
 void swap(int* a, int* b)
 {
@@ -15,11 +17,14 @@ int partition(int arr[], int l, int h)
  
     for (int j = l; j <= h - 1; j++) {
         if (arr[j] <= x) {
+            comp++;
             i++;
             swap(&arr[i], &arr[j]);
+            mov++;
         }
     }
     swap(&arr[i + 1], &arr[h]);
+    mov++;
     return (i + 1);
 }
  
@@ -51,6 +56,7 @@ void quickSortIterative(int arr[], int l, int h)
         // Se existem elementos na parte esquerda do pivô,
         // então desloca a parte esquerda para a lista auxiliar
         if (p - 1 > l) {
+            comp++;
             stack[++top] = l;
             stack[++top] = p - 1;
         }
@@ -58,6 +64,7 @@ void quickSortIterative(int arr[], int l, int h)
         // Se existem elementos na parte direita do pivô,
         // então desloca a parte direita para a lista auxiliar
         if (p + 1 < h) {
+            comp++;
             stack[++top] = p + 1;
             stack[++top] = h;
         }
@@ -78,6 +85,7 @@ int main()
     int arr[] = { 4, 3, 5, 2, 1, 3, 2, 3 };
     int n = sizeof(arr) / sizeof(*arr);
     quickSortIterative(arr, 0, n - 1);
+    printf("%d %d ", mov, comp);
     printf("\n");
     printArr(arr, n);
     return 0;
