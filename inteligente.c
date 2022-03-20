@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+ int comp = 0, mov = 0;
 //funçao abaixor vai ver qual lado é menor do vetor 
 void Ordena(int inicio, int fim, int vet[],int esq, int dir)
 {
@@ -11,19 +12,34 @@ void Ordena(int inicio, int fim, int vet[],int esq, int dir)
     compara(inicio,fim,&esq,&dir);
     // ifs abaixo vai compara todos os casos possivei esquerda menor, direita menor ou igual os numeros do contador
     if (esq < dir)
-    {
+    {   
+        comp++;
         esq++;
-        if (esq < dir) Ordena(inicio, j, vet,esq,dir);        
+        if (esq < dir){
+            comp++;
+            Ordena(inicio, j, vet,esq,dir);
+        }        
     }
     if (dir < esq)
-    {   
+    {           
+        comp++;
         dir--;
-        if (dir > esq) Ordena(i, fim, vet,esq,dir);
+        if (dir > esq) {
+            comp++;
+            Ordena(i, fim, vet,esq,dir);
+        }
     }
     if(esq==dir)
     {
-        if (inicio < j) Ordena(inicio, j, vet,esq,dir);
-        if (i < fim) Ordena(i, fim, vet,esq,dir);      
+        comp++;
+        if (inicio < j){
+            comp++;
+            Ordena(inicio, j, vet,esq,dir);
+        } 
+        if (i < fim) {
+            comp++;
+            Ordena(i, fim, vet,esq,dir);
+        }      
     }
 }
 void QuickSort(int vet[], int n)
@@ -55,17 +71,22 @@ void Particao(int inicio, int fim,int *i, int *j, int *vet){
     pivo = vet[(*i + *j)/2];
     do
     {
+        comp++;
         while (pivo > vet[*i]){
+            comp++;
             (*i)++;
         }
         while (pivo < vet[*j]) {
+            comp++;
             (*j)--;
         }
         if (*i <= *j)
         {
+            comp++;
             aux = vet[*i];
             vet[*i] = vet[*j];
             vet[*j] = aux;
+            mov++;
             (*i)++;
             (*j)--;
         }
@@ -92,6 +113,7 @@ int main(){
     {
         printf("%d ",vet[i]);
     }
+    printf("\nComp = %d Mov=%d ", mov, comp);
     printf("\n");
    
 }
