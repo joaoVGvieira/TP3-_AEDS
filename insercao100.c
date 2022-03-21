@@ -34,14 +34,14 @@ int particao(int vetor[],int inicio, int fim){
       aux = vetor[i];
       vetor[i] = vetor[j];
       vetor[j] = aux;
-      mov++;
+      mov=mov+1;
       j += 1;
     }
   }
   aux = vetor[j];
   vetor[j] = vetor[fim];
   vetor[fim] = aux;
-  mov++;
+  mov=mov+1;
  
   return j;
 }
@@ -100,7 +100,9 @@ int main(){
   }
 
   printf("\n");
-  printf("MOVIMENTACOES: %d\nCOMPARACOES:%d\n",mov,comp);
+  printf("MOVIMENTACOES:%d\nCOMPARACOES:%d\n",mov,comp);
+
+  return 0;
     
     
 }
