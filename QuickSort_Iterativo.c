@@ -1,6 +1,7 @@
 #include <stdio.h>
- 
- int comp = 0, mov = 0;
+#include <time.h>
+
+int comp = 0, mov = 0;
 
 // Troca dois elementos
 void swap(int* a, int* b)
@@ -31,7 +32,7 @@ int partition(int arr[], int l, int h)
 /* A[] --> Lista sendo ordenada,
    l  --> Posição Inicial,
    h  --> Posição Final */
-void quickSortIterative(int arr[], int l, int h)
+void quickSortIterativo(int arr[], int l, int h)
 {
     // Criando lista auxiliar, que armazenará índices
     int stack[h - l + 1];
@@ -82,9 +83,14 @@ void printArr(int arr[], int n)
 // Função Main
 int main()
 {
+    clock_t tempo_execu;
+    char tempo[20];
     int arr[] = { 4, 3, 5, 2, 1, 3, 2, 3 };
     int n = sizeof(arr) / sizeof(*arr);
-    quickSortIterative(arr, 0, n - 1);
+    tempo_execu = clock();
+    quickSortIterativo(arr, 0, n - 1);
+    tempo_execu =  clock()- tempo_execu;
+    printf("\n%f ", ((float)tempo_execu)/(float)CLOCKS_PER_SEC);
     printf("%d %d ", mov, comp);
     printf("\n");
     printArr(arr, n);
