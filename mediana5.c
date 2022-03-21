@@ -240,7 +240,7 @@ int main(){
         printf("%d. ", v[i]);
     }
     printf("\n");
-    printf("MOVIMENTACOES: %d\n COMPARACOES:%d\n");
+    printf("MOVIMENTACOES: %d\nCOMPARACOES:%d\n");
 
     return 0;
 }
