@@ -1,0 +1,3 @@
+
+ 0.000007 segundos
+Comp = 48 mov = 11 

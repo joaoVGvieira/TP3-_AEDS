@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "arquivo.h"
+#include "Libs/arquivos.h"
 int comp = 0, mov = 0;
 //chama o quick normal para achar o pivo e ordernar o vetor
 void Quick(int vetor[], int inicio, int fim){
@@ -46,7 +46,11 @@ void Quick(int vetor[], int inicio, int fim){
 
 int main(){
     clock_t tempo_execu;
+    //char nome[1000];
     tempo_execu = clock();
+    /*printf("DIGITE O NOME DO ARQUIVO DE ENTRADA: ");
+    scanf(" %[^\n]s ",nome);*/
+    //ler(nome);
     int i,N;
     printf("Digite o tamanho do vetor:");
     scanf("%d",&N);

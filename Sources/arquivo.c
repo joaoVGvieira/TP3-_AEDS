@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 #include <string.h>
-#include "arquivo.h"
+#include "../Libs/arquivos.h"
 // Vai ler o arquivo de teste
 /*void ler(char nome[1000]){
     FILE *file = fopen(nome,"r");
