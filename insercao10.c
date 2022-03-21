@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include<time.h>
+int comp = 0, mov = 0;
 
 
 void insertion_sort(int vetor[],int inicio,int fim)
@@ -11,6 +13,7 @@ void insertion_sort(int vetor[],int inicio,int fim)
       j = i;
     while (j>inicio && vetor[j-1]>aux)
       {
+        comp++;
         vetor[j]= vetor[j-1] ;
         j-= 1;
     }
@@ -33,15 +36,18 @@ int particao(int vetor[],int inicio, int fim){
      {
       if(vetor[i]<pivo)
       {
+        comp++;
         aux = vetor[i];
         vetor[i] = vetor[j];
         vetor[j] = aux;
+        mov++;
         j += 1;
       }
     }
     aux = vetor[j];
     vetor[j] = vetor[fim];
     vetor[fim] = aux;
+    mov++;
  
   return j;
 }
@@ -50,9 +56,11 @@ void Quicksort_Insercao(int vetor[], int inicio, int fim)
 {
   while (inicio < fim)
     {
+      comp++;
     // caso (fim - inicio) mais um for menor que 10, ira usar insertion_sort caso o contrario ira usar quicksort,
     if (fim-inicio + 1 <= 10)
-      {
+      { 
+        comp++;
         insertion_sort(vetor,inicio, fim);
       break;
     }
@@ -61,7 +69,8 @@ void Quicksort_Insercao(int vetor[], int inicio, int fim)
         { // encontrar pivor para usar o quicksort 
           int pivo = particao(vetor,inicio,fim) ;
           if (pivo-inicio<fim-pivo)
-        {
+        { 
+          comp++;
           Quicksort_Insercao(vetor, inicio, pivo - 1);
           inicio = pivo + 1;
        }
@@ -98,7 +107,8 @@ int main(){
     {
         printf("%d ",vet[i]);
     }
-    printf("\n");
+  printf("\n");
+  printf("MOVIMENTACOES: %d\nCOMPARACOES:%d\n");
     
     
 }
