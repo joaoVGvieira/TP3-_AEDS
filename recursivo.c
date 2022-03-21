@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
- int comp = 0, mov = 0;
+#include <time.h>
+#include "arquivo.h"
+int comp = 0, mov = 0;
 //chama o quick normal para achar o pivo e ordernar o vetor
 void Quick(int vetor[], int inicio, int fim){
    
@@ -43,6 +45,8 @@ void Quick(int vetor[], int inicio, int fim){
 }
 
 int main(){
+    clock_t tempo_execu;
+    tempo_execu = clock();
     int i,N;
     printf("Digite o tamanho do vetor:");
     scanf("%d",&N);
@@ -57,13 +61,16 @@ int main(){
     {
         printf("%d ",vet[i]);
     }
+    tempo_execu = clock();
     Quick(vet,0,N-1);
-    printf("\nVetor ordenado:\n");
+    tempo_execu =  clock()- tempo_execu;
+    escreve_arquivo_tempo(vet,tempo_execu,N,comp,mov);
+    /*printf("\nVetor ordenado:\n");
     for ( i = 0; i < N; i++)
     {
         printf("%d ",vet[i]);
-    }
-    printf("\nComp = %d Mov=%d ", mov, comp);
+    }*/
+    printf("\nComp = %d Mov=%d ", comp, mov);
     printf("\n");
     
 }

@@ -128,7 +128,6 @@ int main(){
         printf("%d. ", v[i]);
     }
     printf("\n");
-    printf("MOVIMENTACOES: %d\nCOMPARACOES:%d\n");
-
+    printf("MOVIMENTACOES: %d\nCOMPARACOES:%d\n",mov,comp);
     return 0;
 }

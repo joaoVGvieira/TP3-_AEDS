@@ -3,7 +3,6 @@
 #include<time.h>
 int comp = 0, mov = 0;
 
-
 void insertion_sort(int vetor[],int inicio,int fim){
   int aux,i,j;
   for(i=1;i<fim+1;i++){
@@ -101,7 +100,7 @@ int main(){
   }
 
   printf("\n");
-  printf("MOVIMENTACOES: %d\nCOMPARACOES:%d\n");
+  printf("MOVIMENTACOES: %d\nCOMPARACOES:%d\n",mov,comp);
     
     
 }

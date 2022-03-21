@@ -4,7 +4,6 @@
 #define N 10
 int comp=0, mov=0;
 
-
 void Particao(int Esq, int Dir, int *i, int *j, int *A){
 
     int pivo, aux;
@@ -240,7 +239,8 @@ int main(){
         printf("%d. ", v[i]);
     }
     printf("\n");
-    printf("MOVIMENTACOES: %d\nCOMPARACOES:%d\n");
+    printf("MOVIMENTACOES: %d\nCOMPARACOES:%d\n",mov,comp);
+
 
     return 0;
 }

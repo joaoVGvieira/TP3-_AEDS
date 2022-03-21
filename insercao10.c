@@ -108,7 +108,7 @@ int main(){
         printf("%d ",vet[i]);
     }
   printf("\n");
-  printf("MOVIMENTACOES: %d\nCOMPARACOES:%d\n");
+  printf("MOVIMENTACOES: %d\nCOMPARACOES:%d\n",mov,comp);
     
     
 }
