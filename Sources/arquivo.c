@@ -27,13 +27,13 @@
     fclose(file);
 }*/
 // vai escrever o arquivo de saida
-void escreve_arquivo_tempo(int vet[], clock_t tempo_execu, int tamanho, int comp, int mov){
+void escreve_arquivo_tempo(int vet[], clock_t tempo_execu, int tamanho, int comp, int mov, char nome_saida){
     int i;
     char nome[100];
-    printf("\nDigite o nome do arquivo de saida:");
-    scanf(" %[^\n]s ",nome);
+    //printf("\nDigite o nome do arquivo de saida:");
+    //scanf(" %[^\n]s ",nome);
     char tempo[20];
-    FILE *saida = fopen(nome, "w");
+    FILE *saida = fopen(nome_saida, "w");
     if(saida) {
         sprintf(tempo, "%f ", ((float)tempo_execu)/(float)CLOCKS_PER_SEC);
         fputs(tempo, saida);
