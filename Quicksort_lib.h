@@ -22,4 +22,4 @@ void Quicksort_Recursivo(int vetor[], int inicio, int fim, int *comp, int *mov);
 
 void QuickSort_Iterativo(int arr[], int l, int h,int *comp, int *mov);
 int Particao_Iterativo(int arr[], int l, int h,int *comp, int *mov);
-void Troca_Iterativo(int* a, int* b,int *comp, int *mov);
+void Troca_Iterativo(int* a, int* b);
