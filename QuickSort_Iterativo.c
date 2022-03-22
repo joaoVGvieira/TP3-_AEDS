@@ -84,15 +84,21 @@ void printArr(int arr[], int n)
 int main()
 {
     clock_t tempo_execu;
-    char tempo[20];
-    int arr[] = { 4, 3, 5, 2, 1, 3, 2, 3 };
-    int n = sizeof(arr) / sizeof(*arr);
+    int i,N;
+    printf("Digite o tamanho do vetor:");
+    scanf("%d",&N);
+    int vet[N];
+    srand(time(NULL));
+    for ( i = 0; i < N; i++)
+    {
+        vet[i] = rand() % 30;
+    }
     tempo_execu = clock();
-    quickSortIterativo(arr, 0, n - 1);
+    quickSortIterativo(vet, 0, N - 1);
     tempo_execu =  clock()- tempo_execu;
     printf("\n%f ", ((float)tempo_execu)/(float)CLOCKS_PER_SEC);
     printf("%d %d ", mov, comp);
     printf("\n");
-    printArr(arr, n);
+    printArr(vet, N);
     return 0;
 }
