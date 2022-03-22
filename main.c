@@ -11,18 +11,14 @@ int main(int argc, char *argv[]) {
     int N=atoi(argv[2]);
     int vet[N];
     semente = atoi(argv[1]);
-    
     printf("Semente: %d\n", semente);
     printf("N: %d\n", N);
     printf("Nome arquivo: %s\n", argv[3]);
-    
     srand(semente);
     for ( i = 0; i < N; i++){
         vet[i] = rand() % N;
     }
-    
-    
-    
+    tempo_execu =  clock();
     //Quicksort_Recursivo(vet, 0, N-1, &comp, &mov);
     //QuickSort_Inteligente(vet,N,&comp,&mov);
     //Quicksort_Insercao10(vet,0,N-1,&comp,&mov);
