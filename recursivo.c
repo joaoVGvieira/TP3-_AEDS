@@ -47,7 +47,6 @@ void Quick(int vetor[], int inicio, int fim){
 int main(){
     clock_t tempo_execu;
     //char nome[1000];
-    tempo_execu = clock();
     /*printf("DIGITE O NOME DO ARQUIVO DE ENTRADA: ");
     scanf(" %[^\n]s ",nome);*/
     //ler(nome);
@@ -58,7 +57,7 @@ int main(){
     srand(time(NULL));
     for ( i = 0; i < N; i++)
     {
-        vet[i] = rand() % 30;
+        vet[i] = rand() % N;
     }
     printf("\nVetor nao ordenado:\n");
     for ( i = 0; i < N; i++)
