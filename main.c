@@ -13,7 +13,8 @@ int main(int argc, char *argv[]) {
     int comp = 0, mov = 0,i,cont=0;
     clock_t tempo_execu;
     int semente;
-    int N=atoi(argv[2]);
+    int N;
+    N=atoi(argv[2]);
     int vet[N];
     semente = atoi(argv[1]);
     printf("Semente: %d\n", semente);
@@ -36,19 +37,19 @@ int main(int argc, char *argv[]) {
     escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);
 
     cont++;
-    /*resetar_vetor(vet,N,semente);
+    resetar_vetor(vet,N,semente);
     tempo_execu =  clock();
     Quicksort_Insercao10(vet,0,N-1,&comp,&mov);
     tempo_execu =  clock()- tempo_execu;
-    escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);*/
+    escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);
 
 
     cont++;
-    /*resetar_vetor(vet,N,semente);
+    resetar_vetor(vet,N,semente);
     tempo_execu =  clock();
     Quicksort_Insercao100(vet,0,N-1,&comp,&mov);
     tempo_execu =  clock()- tempo_execu;
-    escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);*/
+    escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);
 
     cont++;
     resetar_vetor(vet,N,semente);

@@ -12,7 +12,7 @@ void escreve_arquivo_tempo(int vet[], clock_t tempo_execu, int tamanho, int comp
     FILE *saida = fopen(nome_saida, "a");
     if (cont==0)
     {
-        fprintf(saida,"N=%d\n",tamanho);
+        fprintf(saida,"\nN=%d\n",tamanho);
     }
     if(saida) {
         fprintf(saida,"%s ",meses[cont]);
