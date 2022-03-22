@@ -26,19 +26,11 @@ int main(int argc, char *argv[]) {
     //Quicksort_Recursivo(vet, 0, N-1, &comp, &mov);
     //QuickSort_Inteligente(vet,N,&comp,&mov);
     //Quicksort_Insercao10(vet,0,N-1,&comp,&mov);
+    //Quicksort_Insercao100(vet,0,N-1,&comp,&mov);
     //QuickSort_Iterativo(vet, 0, N-1, &comp, &mov);
-    
-    tempo_execu = clock();
-    Ordena_Mediana3(0,N,vet,&comp,&mov);
+    //Ordena_Mediana3(0,N,vet,&comp,&mov);
+    //Ordena_Mediana5(0, N, vet, &comp, &mov);
     tempo_execu =  clock()- tempo_execu;
-    escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3]);
-    comp=0, mov=0;
-
-    tempo_execu = clock();
-    Ordena_Mediana5(0, N, vet, &comp, &mov);
-    tempo_execu =  clock()- tempo_execu;
-    
-    
     escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3]);
     for ( i = 0; i < N; i++){
         printf("%d ",vet[i]);
