@@ -1,7 +1,6 @@
 #include "Quicksort_lib.h"
 #include <stdio.h>
 #include <stdlib.h>
-int comp = 0, mov = 0;
 void QuickSort_Inteligente(int vet[], int n,int *comp, int *mov){
     Ordena_Inteligente(0, n-1, vet,0,0,comp,mov);
 }
@@ -87,31 +86,34 @@ void Particao_Inteligente(int inicio, int fim,int *i, int *j, int *vet,int *comp
         }
     }while (*i <= *j);
 }
-/*
-void Quicksort_Insercao10(int vetor[], int inicio, int fim){
+
+//Inserçao 10
+void Quicksort_Insercao10(int vetor[], int inicio, int fim,int *comp, int *mov){
     while (inicio < fim)
     {
-      comp++;
+      (*comp)++;
     // caso (fim - inicio) mais um for menor que 10, ira usar Ordena_Insercao10 caso o contrario ira usar quicksort,
     if (fim-inicio + 1 <= 10)
       { 
-        comp++;
-        Ordena_Insercao10(vetor,inicio, fim);
+        (*comp)++;
+        Ordena_Insercao10(vetor,inicio, fim,comp,mov);
       break;
     }
  
     else
         { // encontrar pivor para usar o quicksort 
-          int pivo = Particao_Insercao10(vetor,inicio,fim) ;
+          (*comp)++;
+          int pivo = Particao_Insercao10(vetor,inicio,fim,comp,mov) ;
           if (pivo-inicio<fim-pivo)
         { 
-          comp++;
-          Quicksort_Insercao10(vetor, inicio, pivo - 1);
+          (*comp)++;
+          Quicksort_Insercao10(vetor, inicio, pivo - 1,comp,mov);
           inicio = pivo + 1;
        }
       else
         {
-        Quicksort_Insercao10(vetor, pivo + 1, fim);
+        (*comp)++;
+        Quicksort_Insercao10(vetor, pivo + 1, fim,comp,mov);
         fim = pivo-1;
         }
  
@@ -119,7 +121,7 @@ void Quicksort_Insercao10(int vetor[], int inicio, int fim){
  
    }
 }
-int Particao_Insercao10(int vetor[],int inicio, int fim){
+int Particao_Insercao10(int vetor[],int inicio, int fim,int *comp, int *mov){
     int pivo, aux, i, j;
 
    j = inicio;
@@ -130,22 +132,22 @@ int Particao_Insercao10(int vetor[],int inicio, int fim){
      {
       if(vetor[i]<pivo)
       {
-        comp++;
+        (*comp)++; 
+        (*mov)++; 
         aux = vetor[i];
         vetor[i] = vetor[j];
         vetor[j] = aux;
-        mov++;
         j += 1;
       }
     }
+    (*mov)++;
     aux = vetor[j];
     vetor[j] = vetor[fim];
     vetor[fim] = aux;
-    mov++;
  
   return j;
 }
-void Ordena_Insercao10(int vetor[],int inicio,int fim){
+void Ordena_Insercao10(int vetor[],int inicio,int fim,int *comp, int *mov){
     int aux,i,j;
     for(i=1;i<fim+1;i++)
     {
@@ -153,14 +155,15 @@ void Ordena_Insercao10(int vetor[],int inicio,int fim){
       j = i;
     while (j>inicio && vetor[j-1]>aux)
       {
-        comp++;
+        (*comp)++;
+        (*mov)++;
         vetor[j]= vetor[j-1] ;
         j-= 1;
     }
     vetor[j]= aux ;
     }
 }
-
+/*
 void Quicksort_Insercao100(int vetor[], int inicio, int fim){
     while (inicio < fim)
   {

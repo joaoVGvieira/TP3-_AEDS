@@ -14,6 +14,7 @@ void insertion_sort(int vetor[],int inicio,int fim)
     while (j>inicio && vetor[j-1]>aux)
       {
         comp++;
+        mov++;
         vetor[j]= vetor[j-1] ;
         j-= 1;
     }
@@ -37,18 +38,18 @@ int particao(int vetor[],int inicio, int fim){
       if(vetor[i]<pivo)
       {
         comp++;
+        mov++;
         aux = vetor[i];
         vetor[i] = vetor[j];
         vetor[j] = aux;
-        mov++;
         j += 1;
       }
     }
+    mov++;
     aux = vetor[j];
     vetor[j] = vetor[fim];
     vetor[fim] = aux;
-    mov++;
- 
+    
   return j;
 }
 
@@ -76,6 +77,7 @@ void Quicksort_Insercao(int vetor[], int inicio, int fim)
        }
       else
         {
+        comp++;
         Quicksort_Insercao(vetor, pivo + 1, fim);
         fim = pivo-1;
         }

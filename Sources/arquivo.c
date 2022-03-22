@@ -32,7 +32,7 @@ void escreve_arquivo_tempo(int vet[], clock_t tempo_execu, int tamanho, int comp
     int i;
     char nome[100];
     char tempo[20];
-    FILE *saida = fopen(nome_saida, "w");
+    FILE *saida = fopen(nome_saida, "a");
     if(saida) {
         fprintf(saida, "N=%d\n",tamanho);
         sprintf(tempo, "Tempo=%f ", ((float)tempo_execu)/(float)CLOCKS_PER_SEC);
