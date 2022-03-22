@@ -11,11 +11,12 @@ void resetar_vetor(int *vet, int N, int semente){
 int main(int argc, char *argv[]) {
         
     int comp = 0, mov = 0,i,cont=0;
+    int *vet;
     clock_t tempo_execu;
     int semente;
     int N;
     N=atoi(argv[2]);
-    int vet[N];
+    vet = (int *) malloc(N * sizeof(int));
     semente = atoi(argv[1]);
     printf("Semente: %d\n", semente);
     printf("N: %d\n", N);
