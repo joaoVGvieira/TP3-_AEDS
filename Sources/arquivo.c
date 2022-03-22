@@ -31,15 +31,14 @@
 void escreve_arquivo_tempo(int vet[], clock_t tempo_execu, int tamanho, int comp, int mov, char nome_saida[]){
     int i;
     char nome[100];
-    //printf("\nDigite o nome do arquivo de saida:");
-    //scanf(" %[^\n]s ",nome);
     char tempo[20];
     FILE *saida = fopen(nome_saida, "w");
     if(saida) {
-        sprintf(tempo, "%f ", ((float)tempo_execu)/(float)CLOCKS_PER_SEC);
+        fprintf(saida, "N=%d\n",tamanho);
+        sprintf(tempo, "Tempo=%f ", ((float)tempo_execu)/(float)CLOCKS_PER_SEC);
         fputs(tempo, saida);
         fprintf(saida,"segundos\n");
-        fprintf(saida, "Comp = %d mov = %d ",comp,mov);
+        fprintf(saida, "Comp = %d mov = %d\n",comp,mov);
         fclose(saida);
         printf("\nARQUIVO DE SAIDA FOI ATUALIZADO!!!\n");
     } else

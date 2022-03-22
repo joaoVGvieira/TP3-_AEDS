@@ -566,8 +566,6 @@ void Quicksort_Recursivo(int vetor[], int inicio, int fim,int *comp, int *mov){
          j-= 1;
       }
    }while(j > i);
-   printf("%d %d",*comp, *mov);
-   //chama recursivamente o quick
    if(inicio < j){
        (*comp)++;
        Quicksort_Recursivo(vetor, inicio, j, comp,mov);
