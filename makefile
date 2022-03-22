@@ -1,5 +1,5 @@
 all: 
-	gcc Sources/arquivo.c QuickSort_lib.c main.c 
+	gcc Sources/arquivo.c Sources/QuickSort_lib.c main.c 
 a:
 	./a.out 2 5 semente1.txt
 b:
