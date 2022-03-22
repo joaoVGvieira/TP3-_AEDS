@@ -18,7 +18,7 @@ void Ordena_Mediana3(int Esq, int Dir, int *A);
 void Particao_Mediana5(int Esq, int Dir, int *i, int *j, int *A);
 void Ordena_Mediana5(int Esq, int Dir, int *A);
 
-void Quicksort_Recursivo(int vetor[], int inicio, int fim);
+void Quicksort_Recursivo(int vetor[], int inicio, int fim, int *comp, int *mov);
 
 void QuickSort_Iterativo(int arr[], int l, int h);
 int Particao_Iterativo(int arr[], int l, int h);

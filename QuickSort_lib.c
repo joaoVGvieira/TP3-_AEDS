@@ -1,5 +1,7 @@
 #include "Quicksort_lib.h"
-int comp = 0, mov = 0;
+#include <stdio.h>
+#include <stdlib.h>
+/*int comp = 0, mov = 0;
 void QuickSort_Inteligente(int vet[], int n){
     Ordena_Inteligente(0, n-1, vet,0,0);
 }
@@ -7,7 +9,7 @@ void Ordena_Inteligente(int inicio, int fim, int vet[],int esq, int dir)
 {
     int i,j;
     //dividir o vetor no meio selecionando o pivo
-    Particao(inicio, fim, &i, &j, vet);
+    Particao_Inteligente(inicio, fim, &i, &j, vet);
     //chama funçao compara para contar o lado esq e dir do pivo.
     Compara_Inteligente(inicio,fim,&esq,&dir);
     // ifs abaixo vai compara todos os casos possivei esquerda menor, direita menor ou igual os numeros do contador
@@ -536,9 +538,9 @@ void Ordena_Mediana5(int Esq, int Dir, int *A){
         Ordena_Mediana5(i, Dir, A);
     }
 }
-
-void Quicksort_Recursivo(int vetor[], int inicio, int fim){
-    int pivo, aux, i, j, meio;
+*/
+void Quicksort_Recursivo(int vetor[], int inicio, int fim,int *comp, int *mov){
+     int pivo, aux, i, j, meio;
    
    i = inicio;
    j = fim;
@@ -547,34 +549,35 @@ void Quicksort_Recursivo(int vetor[], int inicio, int fim){
    pivo = vetor[meio];
    do{
       while (vetor[i] < pivo){
-         comp++;
+         (*comp)++;
          i+= 1;
       } 
       while (vetor[j] > pivo){
-          comp++;
+          (*comp)++;
           j-= 1;
       } 
       if(i <= j){
-         comp++; 
+         (*comp)++; 
          aux = vetor[i];
          vetor[i] = vetor[j];
          vetor[j] = aux;
-         mov++;
+         (*mov)++;
          i+= 1;
          j-= 1;
       }
    }while(j > i);
+   printf("%d %d",*comp, *mov);
    //chama recursivamente o quick
    if(inicio < j){
-       Quicksort_Recursivo(vetor, inicio, j);
-       comp++;
+       (*comp)++;
+       Quicksort_Recursivo(vetor, inicio, j, comp,mov);
    } 
    if(i < fim) {
-       Quicksort_Recursivo(vetor, i, fim);
-       comp++;  
+       (*comp)++;  
+       Quicksort_Recursivo(vetor, i, fim, comp,mov);
    }
 }
-
+/*
 void QuickSort_Iterativo(int arr[], int l, int h){
     // Criando lista auxiliar, que armazenará índices
     int stack[h - l + 1];
@@ -621,11 +624,11 @@ int Particao_Iterativo(int arr[], int l, int h){
         if (arr[j] <= x) {
             comp++;
             i++;
-            swap(&arr[i], &arr[j]);
+            Troca_Iterativo(&arr[i], &arr[j]);
             mov++;
         }
     }
-    swap(&arr[i + 1], &arr[h]);
+    Troca_Iterativo(&arr[i + 1], &arr[h]);
     mov++;
     return (i + 1);
 }
@@ -634,3 +637,4 @@ void Troca_Iterativo(int* a, int* b){
     *a = *b;
     *b = t;
 }
+*/

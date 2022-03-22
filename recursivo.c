@@ -67,12 +67,12 @@ int main(){
     tempo_execu = clock();
     Quick(vet,0,N-1);
     tempo_execu =  clock()- tempo_execu;
-    escreve_arquivo_tempo(vet,tempo_execu,N,comp,mov);
-    /*printf("\nVetor ordenado:\n");
+    //escreve_arquivo_tempo(vet,tempo_execu,N,comp,mov);
+    printf("\nVetor ordenado:\n");
     for ( i = 0; i < N; i++)
     {
         printf("%d ",vet[i]);
-    }*/
+    }
     printf("\nComp = %d Mov=%d ", comp, mov);
     printf("\n");
     

@@ -1,4 +1,4 @@
 all: 
-	gcc recursivo.c   Sources/arquivo.c  
+	gcc  Sources/arquivo.c  QuickSort_lib.c main.c 
 a:
 	./a.out
