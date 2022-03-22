@@ -15,7 +15,6 @@ int main(int argc, char *argv[]) {
     printf("Semente: %d\n", semente);
     printf("Nome arquivo: %s\n", argv[2]);
     srand(semente);
-    printf("N: %d\n", N);
     for ( int i = 0; i < N; i++){
         vet[i] = rand() % N;
     }
@@ -23,6 +22,5 @@ int main(int argc, char *argv[]) {
     Quicksort_Recursivo(vet, 0, N-1, &comp, &mov);
     tempo_execu =  clock()- tempo_execu;
     escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[2]);
-    printf("\n %d %d \n", comp, mov);
     return 0;
 }
