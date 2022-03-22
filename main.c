@@ -14,14 +14,14 @@ int main(int argc, char *argv[]) {
     printf("Semente: %d\n", semente);
     printf("N: %d\n", N);
     printf("Nome arquivo: %s\n", argv[3]);
-    srand(time(NULL));
+    srand(semente);
     for ( i = 0; i < N; i++){
         vet[i] = rand() % N;
     }
     tempo_execu = clock();
     //Quicksort_Recursivo(vet, 0, N-1, &comp, &mov);
     //QuickSort_Inteligente(vet,N,&comp,&mov);
-    //Quicksort_Insercao10(vet,0,N-1,&comp,&mov);
+    Quicksort_Insercao10(vet,0,N-1,&comp,&mov);
     tempo_execu =  clock()- tempo_execu;
     escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3]);
     for ( i = 0; i < N; i++)
