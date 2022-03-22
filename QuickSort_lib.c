@@ -479,7 +479,7 @@ void Particao_Mediana5(int Esq, int Dir, int *i, int *j, int *A, int *comp, int 
             aux = A[*i];
             A[*i] = A[*j];
             A[*j] = aux;
-            mov++;
+            (*mov)++;
             (*i)++;
             (*j)--;
         }
