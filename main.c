@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Quicksort_lib.h"
+#include "Libs/Quicksort_lib.h"
 #include "Libs/arquivos.h"
 
 int main(int argc, char *argv[]) {

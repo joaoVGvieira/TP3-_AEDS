@@ -1,4 +1,4 @@
-#include "Quicksort_lib.h"
+#include "../Libs/Quicksort_lib.h"
 #include <stdio.h>
 #include <stdlib.h>
 void QuickSort_Inteligente(int vet[], int n,int *comp, int *mov){
