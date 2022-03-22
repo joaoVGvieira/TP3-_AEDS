@@ -1,6 +1,6 @@
 all: 
 	gcc Sources/arquivo.c QuickSort_lib.c main.c 
 a:
-	./a.out 5 nome_saida.txt
+	./a.out 1 10 semente1.txt
 b:
-	./a.exe 5 nome_saida.txt
+	./a.exe 1 100 semente1.txt

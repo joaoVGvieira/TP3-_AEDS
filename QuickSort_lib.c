@@ -1,46 +1,46 @@
 #include "Quicksort_lib.h"
 #include <stdio.h>
 #include <stdlib.h>
-/*int comp = 0, mov = 0;
-void QuickSort_Inteligente(int vet[], int n){
-    Ordena_Inteligente(0, n-1, vet,0,0);
+int comp = 0, mov = 0;
+void QuickSort_Inteligente(int vet[], int n,int *comp, int *mov){
+    Ordena_Inteligente(0, n-1, vet,0,0,comp,mov);
 }
-void Ordena_Inteligente(int inicio, int fim, int vet[],int esq, int dir)
+void Ordena_Inteligente(int inicio, int fim, int vet[],int esq, int dir,int *comp, int *mov)
 {
     int i,j;
     //dividir o vetor no meio selecionando o pivo
-    Particao_Inteligente(inicio, fim, &i, &j, vet);
+    Particao_Inteligente(inicio, fim, &i, &j, vet,comp,mov);
     //chama funçao compara para contar o lado esq e dir do pivo.
     Compara_Inteligente(inicio,fim,&esq,&dir);
     // ifs abaixo vai compara todos os casos possivei esquerda menor, direita menor ou igual os numeros do contador
     if (esq < dir)
     {   
-        comp++;
+        (*comp)++;
         esq++;
         if (esq < dir){
-            comp++;
-            Ordena_Inteligente(inicio, j, vet,esq,dir);
+            (*comp)++;
+            Ordena_Inteligente(inicio, j, vet,esq,dir,comp,mov);
         }        
     }
     if (dir < esq)
     {           
-        comp++;
+        (*comp)++;
         dir--;
         if (dir > esq) {
-            comp++;
-            Ordena_Inteligente(i, fim, vet,esq,dir);
+            (*comp)++;
+            Ordena_Inteligente(i, fim, vet,esq,dir,comp,mov);
         }
     }
     if(esq==dir)
     {
-        comp++;
+        (*comp)++;
         if (inicio < j){
-            comp++;
-            Ordena_Inteligente(inicio, j, vet,esq,dir);
+            (*comp)++;
+            Ordena_Inteligente(inicio, j, vet,esq,dir,comp,mov);
         } 
         if (i < fim) {
-            comp++;
-            Ordena_Inteligente(i, fim, vet,esq,dir);
+            (*comp)++;
+            Ordena_Inteligente(i, fim, vet,esq,dir,comp,mov);
         }      
     }
 }
@@ -59,35 +59,35 @@ void Compara_Inteligente(int inicio, int fim, int *esq, int *dir){
  
     } 
 }
-void Particao_Inteligente(int inicio, int fim,int *i, int *j, int *vet){
+void Particao_Inteligente(int inicio, int fim,int *i, int *j, int *vet,int *comp, int *mov){
     int pivo, aux;
     *i = inicio;
     *j = fim;
     pivo = vet[(*i + *j)/2];
     do
     {
-        comp++;
+        (*comp)++;
         while (pivo > vet[*i]){
-            comp++;
+            (*comp)++;
             (*i)++;
         }
         while (pivo < vet[*j]) {
-            comp++;
+            (*comp)++;
             (*j)--;
         }
         if (*i <= *j)
         {
-            comp++;
+            (*comp)++;
             aux = vet[*i];
             vet[*i] = vet[*j];
             vet[*j] = aux;
-            mov++;
+            (*mov)++;
             (*i)++;
             (*j)--;
         }
     }while (*i <= *j);
 }
-
+/*
 void Quicksort_Insercao10(int vetor[], int inicio, int fim){
     while (inicio < fim)
     {
