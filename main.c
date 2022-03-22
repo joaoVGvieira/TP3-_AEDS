@@ -5,15 +5,14 @@
 
 int main(int argc, char *argv[]) {
         
-    int N,comp = 0, mov = 0;
+    int comp = 0, mov = 0;
     clock_t tempo_execu;
     int semente;
-    printf("Digite o valor de N:");
-    scanf("%d",&N);
+    int N=atoi(argv[2]);
     int vet[N];
     semente = atoi(argv[1]);
     printf("Semente: %d\n", semente);
-    printf("Nome arquivo: %s\n", argv[2]);
+    printf("Nome arquivo: %s\n", argv[3]);
     srand(semente);
     for ( int i = 0; i < N; i++){
         vet[i] = rand() % N;
@@ -21,6 +20,6 @@ int main(int argc, char *argv[]) {
     tempo_execu = clock();
     Quicksort_Recursivo(vet, 0, N-1, &comp, &mov);
     tempo_execu =  clock()- tempo_execu;
-    escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[2]);
+    escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3]);
     return 0;
 }
