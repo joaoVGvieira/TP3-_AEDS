@@ -4,15 +4,13 @@
 #include "Libs/arquivos.h"
 int main(int argc, char *argv[]) {
         int comp=0,mov=0;
-        //int *Pcomp = &comp, *Pmov = &mov;
-
         clock_t tempo_execu;
-        int N,valor;
-        valor = atoi(argv[1]);
-        printf("Inserir o valor de N da semente %d:",valor);
+        int N,semente;
+        semente = atoi(argv[1]);
+        printf("Inserir o valor de N da semente %d:",semente);
         scanf("%d",&N);
         int vet[N];
-        srand(time(NULL));
+        srand(time(semente));
         for ( int i = 0; i < N; i++)
         {
             vet[i] = rand() % N;
