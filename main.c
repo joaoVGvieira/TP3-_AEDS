@@ -21,13 +21,20 @@ int main(int argc, char *argv[]) {
         vet[i] = rand() % N;
     }
     
-    tempo_execu = clock();
+    
     
     //Quicksort_Recursivo(vet, 0, N-1, &comp, &mov);
     //QuickSort_Inteligente(vet,N,&comp,&mov);
     //Quicksort_Insercao10(vet,0,N-1,&comp,&mov);
     //QuickSort_Iterativo(vet, 0, N-1, &comp, &mov);
-    //Ordena_Mediana3(0,N,vet,&comp,&mov);
+    
+    tempo_execu = clock();
+    Ordena_Mediana3(0,N,vet,&comp,&mov);
+    tempo_execu =  clock()- tempo_execu;
+    escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3]);
+    comp=0, mov=0;
+
+    tempo_execu = clock();
     Ordena_Mediana5(0, N, vet, &comp, &mov);
     tempo_execu =  clock()- tempo_execu;
     
