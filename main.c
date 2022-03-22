@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
         printf("Inserir o valor de N da semente %d:",semente);
         scanf("%d",&N);
         int vet[N];
-        srand(time(semente));
+        srand(time(NULL));
         for ( int i = 0; i < N; i++)
         {
             vet[i] = rand() % N;
