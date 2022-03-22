@@ -163,29 +163,28 @@ void Ordena_Insercao10(int vetor[],int inicio,int fim,int *comp, int *mov){
     vetor[j]= aux ;
     }
 }
-/*
-void Quicksort_Insercao100(int vetor[], int inicio, int fim){
+void Quicksort_Insercao100(int vetor[], int inicio, int fim, int * comp, int * mov){
     while (inicio < fim)
   {
     (*comp)++;
     // caso (fim - inicio) mais um for menor que 10, ira usar Ordena_Insercao100 caso o contrario ira usar quicksort,
     if (fim-inicio + 1 <= 100){
       (*comp)++;
-      Ordena_Insercao100(vetor,inicio, fim);
+      Ordena_Insercao100(vetor,inicio, fim, comp, mov);
       break;
     }
  
     else
         { // encontrar pivor para usar o quicksort 
-          int pivo = Particao_Insercao100(vetor,inicio,fim) ;
+          int pivo = Particao_Insercao100(vetor,inicio,fim, comp, mov) ;
         if (pivo-inicio<fim-pivo)
         { (*comp)++; 
-          Quicksort_Insercao100(vetor, inicio, pivo - 1);
+          Quicksort_Insercao100(vetor, inicio, pivo - 1, comp, mov);
           inicio = pivo + 1;
        }
       else
         {
-        Quicksort_Insercao100(vetor, pivo + 1, fim);
+        Quicksort_Insercao100(vetor, pivo + 1, fim, comp, mov);
         fim = pivo-1;
         }
  
@@ -193,7 +192,7 @@ void Quicksort_Insercao100(int vetor[], int inicio, int fim){
  
    }
 }
-int Particao_Insercao100(int vetor[],int inicio, int fim){
+int Particao_Insercao100(int vetor[],int inicio, int fim, int * comp, int * mov){
     int pivo, aux, i, j;
   j = inicio;
   pivo = vetor[fim];
@@ -204,31 +203,32 @@ int Particao_Insercao100(int vetor[],int inicio, int fim){
       aux = vetor[i];
       vetor[i] = vetor[j];
       vetor[j] = aux;
-      mov=mov+1;
+      (*mov)++;
       j += 1;
     }
   }
   aux = vetor[j];
   vetor[j] = vetor[fim];
   vetor[fim] = aux;
-  mov=mov+1;
+  (*mov)++;
  
   return j;
 }
-void Ordena_Insercao100(int vetor[],int inicio,int fim){
+void Ordena_Insercao100(int vetor[],int inicio,int fim, int * comp, int * mov){
     int aux,i,j;
     for(i=1;i<fim+1;i++){
     aux = vetor[i];
     j = i;
     while (j>inicio && vetor[j-1]>aux){
       (*comp)++;
+      (*mov)++;
       vetor[j]= vetor[j-1] ;
       j-= 1;
     }
     vetor[j]= aux ;
   }
 }
-*/
+
 void Particao_Mediana3(int Esq, int Dir, int *i, int *j, int *A, int *comp, int *mov){
     int pivo, aux;
     *i = Esq;
