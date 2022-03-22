@@ -26,6 +26,7 @@
     }
     fclose(file);
 }*/
+
 // vai escrever o arquivo de saida
 void escreve_arquivo_tempo(int vet[], clock_t tempo_execu, int tamanho, int comp, int mov, char nome_saida[]){
     int i;
