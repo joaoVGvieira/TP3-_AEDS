@@ -1,7 +1,26 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "Libs/arquivos.h"
+//#include "Libs/arquivos.h"
+void escreve_arquivo_tempo(int vet[], clock_t tempo_execu, int tamanho, int comp, int mov, char *nome_saida){
+    int i;
+    char nome[100];
+    //printf("\nDigite o nome do arquivo de saida:");
+    //scanf(" %[^\n]s ",nome);
+    char tempo[20];
+    FILE *saida = fopen(nome_saida, "w");
+    if(saida) {
+        sprintf(tempo, "%f ", ((float)tempo_execu)/(float)CLOCKS_PER_SEC);
+        fputs(tempo, saida);
+        fprintf(saida,"segundos\n");
+        fprintf(saida, "Comp = %d mov = %d ",comp,mov);
+        fclose(saida);
+        printf("\nARQUIVO DE SAIDA FOI ATUALIZADO!!!\n");
+    } else
+        printf("\nERRO ao abrir arquivo de saida!\n");
+}
+
+
 int comp = 0, mov = 0;
 //chama o quick normal para achar o pivo e ordernar o vetor
 void Quick(int vetor[], int inicio, int fim){
@@ -44,17 +63,21 @@ void Quick(int vetor[], int inicio, int fim){
 
 }
 
-int main(){
+int main(int argc, char *argv[]){
     clock_t tempo_execu;
-    //char nome[1000];
-    /*printf("DIGITE O NOME DO ARQUIVO DE ENTRADA: ");
-    scanf(" %[^\n]s ",nome);*/
-    //ler(nome);
+   
+    printf("Numeros argumentos: %d\n", argc);
+    for(int h=0; h<argc; h++){
+        printf("Argumento %d: %s\n", h, argv[h]);
+    }
+    int semente = atoi(argv[1]);
+    printf("Semente: %d", semente);
+
     int i,N;
     printf("Digite o tamanho do vetor:");
-    scanf("%d",&N);
+    scanf("%d", &N);
     int vet[N];
-    srand(time(NULL));
+    srand(semente);
     for ( i = 0; i < N; i++)
     {
         vet[i] = rand() % N;
@@ -77,3 +100,4 @@ int main(){
     printf("\n");
     
 }
+*/
