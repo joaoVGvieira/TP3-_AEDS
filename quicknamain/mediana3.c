@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
-#define N 10
+#define N 5
 int comp = 0, mov = 0;
 
 
@@ -125,7 +125,7 @@ int main(){
     Ordena(0, N, v);
 
     for(int i=0; i<N; i++){
-        printf("%d. ", v[i]);
+        printf("%d ", v[i]);
     }
     printf("\n");
     printf("MOVIMENTACOES: %d\nCOMPARACOES:%d\n",mov,comp);

@@ -228,13 +228,8 @@ void Ordena_Insercao100(int vetor[],int inicio,int fim){
     vetor[j]= aux ;
   }
 }
-<<<<<<< HEAD
 */
 void Particao_Mediana3(int Esq, int Dir, int *i, int *j, int *A, int *comp, int *mov){
-=======
-void Particao_Mediana3(int Esq, int Dir, int *i, int *j, int *A){
->>>>>>> d95e7b806a93b24a51d4614a85aa6040e756b140
-    
     int pivo, aux;
     *i = Esq;
     *j = Dir;
@@ -257,12 +252,7 @@ void Particao_Mediana3(int Esq, int Dir, int *i, int *j, int *A){
             (*comp)++;
             if (A[segundo] < A[terceiro]) {
                 mediana = segundo;
-<<<<<<< HEAD
-                (*comp)++;
-
-=======
                 comp++;
->>>>>>> d95e7b806a93b24a51d4614a85aa6040e756b140
             } else {
                 if (A[primeiro] < A[terceiro]) {
                     (*comp)++;
@@ -306,12 +296,7 @@ void Particao_Mediana3(int Esq, int Dir, int *i, int *j, int *A){
             aux = A[*i];
             A[*i] = A[*j];
             A[*j] = aux;
-<<<<<<< HEAD
             (*mov)++;
-
-=======
-            mov++;
->>>>>>> d95e7b806a93b24a51d4614a85aa6040e756b140
             (*i)++;
             (*j)--;
         }
@@ -320,12 +305,8 @@ void Particao_Mediana3(int Esq, int Dir, int *i, int *j, int *A){
 }
 void Ordena_Mediana3(int Esq, int Dir, int *A, int *comp, int *mov){
     int i, j;
-<<<<<<< HEAD
     Particao_Mediana3(Esq, Dir, &i, &j, A, comp, mov);
 
-=======
-    Particao_Mediana3(Esq, Dir, &i, &j, A);
->>>>>>> d95e7b806a93b24a51d4614a85aa6040e756b140
     if(Esq < j){
         (*comp)++;
         Ordena_Mediana3(Esq, j, A, comp, mov);
@@ -335,12 +316,8 @@ void Ordena_Mediana3(int Esq, int Dir, int *A, int *comp, int *mov){
         Ordena_Mediana3(i, Dir, A, comp, mov);
     }
 }
-<<<<<<< HEAD
 
 void Particao_Mediana5(int Esq, int Dir, int *i, int *j, int *A, int *comp, int *mov){
-=======
-void Particao_Mediana5(int Esq, int Dir, int *i, int *j, int *A){
->>>>>>> d95e7b806a93b24a51d4614a85aa6040e756b140
     int pivo, aux;
     *i = Esq;
     *j = Dir;
@@ -502,12 +479,7 @@ void Particao_Mediana5(int Esq, int Dir, int *i, int *j, int *A){
             aux = A[*i];
             A[*i] = A[*j];
             A[*j] = aux;
-<<<<<<< HEAD
-            (*mov)++;
-
-=======
             mov++;
->>>>>>> d95e7b806a93b24a51d4614a85aa6040e756b140
             (*i)++;
             (*j)--;
         }
@@ -516,12 +488,7 @@ void Particao_Mediana5(int Esq, int Dir, int *i, int *j, int *A){
 }
 void Ordena_Mediana5(int Esq, int Dir, int *A, int *comp, int *mov){
     int i, j;
-<<<<<<< HEAD
-    Particao_Mediana5(Esq, Dir, &i, &j, A, comp, mov);
-
-=======
-    Particao_Mediana5(Esq, Dir, &i, &j, A);
->>>>>>> d95e7b806a93b24a51d4614a85aa6040e756b140
+    Particao_Mediana5(Esq, Dir, &i, &j, A,comp,mov);
     if(Esq < j){
         (*comp)++;
         Ordena_Mediana5(Esq, j, A, comp, mov);
@@ -561,11 +528,11 @@ void Quicksort_Recursivo(int vetor[], int inicio, int fim,int *comp, int *mov){
    }while(j > i);
    if(inicio < j){
        (*comp)++;
-       Quicksort_Recursivo(vetor, inicio, j, (*comp),mov);
+       Quicksort_Recursivo(vetor, inicio, j, comp,mov);
    } 
    if(i < fim) {
        (*comp)++;  
-       Quicksort_Recursivo(vetor, i, fim, (*comp),mov);
+       Quicksort_Recursivo(vetor, i, fim,comp,mov);
    }
 }
 void QuickSort_Iterativo(int arr[], int l, int h, int * comp, int * mov){
