@@ -72,6 +72,5 @@ int main(int argc, char *argv[]) {
     Ordena_Mediana5(0, N, vet, &comp, &mov);
     tempo_execu =  clock()- tempo_execu;
     escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);
-    
     return 0;
 }

@@ -1,0 +1,56 @@
+N=1000
+Rercusivo: Tempo = 0.000412 segundos, Comparaçoes = 11333, Movimentaçoes = 2840
+inteligente: Tempo = 0.000706 segundos, Comparaçoes = 26379, Movimentaçoes = 5506
+Insercao10: Tempo = 0.000780 segundos, Comparaçoes = 32965, Movimentaçoes = 11496
+Insercao100: Tempo = 0.000189 segundos, Comparaçoes = 50340, Movimentaçoes = 28816
+Iterativo: Tempo = 0.000178 segundos, Comparaçoes = 56288, Movimentaçoes = 34765
+Mediana3: Tempo = 0.000177 segundos, Comparaçoes = 72459, Movimentaçoes = 37496
+Mediana5: Tempo = 0.000185 segundos, Comparaçoes = 88075, Movimentaçoes = 40237
+N=5000
+Rercusivo: Tempo = 0.002394 segundos, Comparaçoes = 68055, Movimentaçoes = 17028
+inteligente: Tempo = 0.003571 segundos, Comparaçoes = 157544, Movimentaçoes = 33091
+Insercao10: Tempo = 0.020370 segundos, Comparaçoes = 204580, Movimentaçoes = 77127
+Insercao100: Tempo = 0.003551 segundos, Comparaçoes = 312109, Movimentaçoes = 184410
+Iterativo: Tempo = 0.001511 segundos, Comparaçoes = 358268, Movimentaçoes = 230570
+Mediana3: Tempo = 0.001357 segundos, Comparaçoes = 459729, Movimentaçoes = 246815
+Mediana5: Tempo = 0.001317 segundos, Comparaçoes = 558651, Movimentaçoes = 262921
+N=10000
+Rercusivo: Tempo = 0.003861 segundos, Comparaçoes = 154147, Movimentaçoes = 36298
+inteligente: Tempo = 0.002870 segundos, Comparaçoes = 352798, Movimentaçoes = 70844
+Insercao10: Tempo = 0.026450 segundos, Comparaçoes = 438197, Movimentaçoes = 150203
+Insercao100: Tempo = 0.004527 segundos, Comparaçoes = 647572, Movimentaçoes = 359113
+Iterativo: Tempo = 0.001612 segundos, Comparaçoes = 727083, Movimentaçoes = 438625
+Mediana3: Tempo = 0.001579 segundos, Comparaçoes = 947967, Movimentaçoes = 473069
+Mediana5: Tempo = 0.001684 segundos, Comparaçoes = 1158607, Movimentaçoes = 507751
+N=50000
+Rercusivo: Tempo = 0.011571 segundos, Comparaçoes = 899163, Movimentaçoes = 207795
+inteligente: Tempo = 0.013689 segundos, Comparaçoes = 2048314, Movimentaçoes = 406891
+Insercao10: Tempo = 0.406807 segundos, Comparaçoes = 2549190, Movimentaçoes = 877441
+Insercao100: Tempo = 0.061718 segundos, Comparaçoes = 3649916, Movimentaçoes = 1975714
+Iterativo: Tempo = 0.007531 segundos, Comparaçoes = 4161231, Movimentaçoes = 2487030
+Mediana3: Tempo = 0.007340 segundos, Comparaçoes = 5452082, Movimentaçoes = 2687301
+Mediana5: Tempo = 0.007675 segundos, Comparaçoes = 6697529, Movimentaçoes = 2886506
+N=100000
+Rercusivo: Tempo = 0.020560 segundos, Comparaçoes = 1893476, Movimentaçoes = 439084
+inteligente: Tempo = 0.025117 segundos, Comparaçoes = 4315843, Movimentaçoes = 860809
+Insercao10: Tempo = 1.695923 segundos, Comparaçoes = 5379879, Movimentaçoes = 1864311
+Insercao100: Tempo = 0.257337 segundos, Comparaçoes = 7667525, Movimentaçoes = 4147151
+Iterativo: Tempo = 0.015839 segundos, Comparaçoes = 8733461, Movimentaçoes = 5213088
+Mediana3: Tempo = 0.016263 segundos, Comparaçoes = 11437134, Movimentaçoes = 5637294
+Mediana5: Tempo = 0.016511 segundos, Comparaçoes = 14106323, Movimentaçoes = 6061278
+N=500000
+Rercusivo: Tempo = 0.085744 segundos, Comparaçoes = 11420861, Movimentaçoes = 2442599
+inteligente: Tempo = 0.110351 segundos, Comparaçoes = 25734106, Movimentaçoes = 4796426
+Insercao10: Tempo = 41.617352 segundos, Comparaçoes = 32190526, Movimentaçoes = 10949638
+Insercao100: Tempo = 6.054554 segundos, Comparaçoes = 44756935, Movimentaçoes = 23491804
+Iterativo: Tempo = 0.090145 segundos, Comparaçoes = 51154360, Movimentaçoes = 29889230
+Mediana3: Tempo = 0.083538 segundos, Comparaçoes = 66914946, Movimentaçoes = 32267705
+Mediana5: Tempo = 0.088375 segundos, Comparaçoes = 82126238, Movimentaçoes = 34645380
+N=1000000
+Rercusivo: Tempo = 0.159404 segundos, Comparaçoes = 22202434, Movimentaçoes = 5202878
+inteligente: Tempo = 0.220515 segundos, Comparaçoes = 50544154, Movimentaçoes = 10222332
+Insercao10: Tempo = 154.188141 segundos, Comparaçoes = 64127980, Movimentaçoes = 23199206
+Insercao100: Tempo = 21.883410 segundos, Comparaçoes = 90001977, Movimentaçoes = 49024934
+Iterativo: Tempo = 0.183889 segundos, Comparaçoes = 103149848, Movimentaçoes = 62172806
+Mediana3: Tempo = 0.185744 segundos, Comparaçoes = 135390644, Movimentaçoes = 67214507
+Mediana5: Tempo = 0.188757 segundos, Comparaçoes = 167713091, Movimentaçoes = 72238663
