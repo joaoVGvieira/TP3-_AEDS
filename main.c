@@ -5,7 +5,6 @@
 void resetar_vetor(int *vet, int N, int semente, int *comp ,int *mov){
     (*mov)=0;
     (*comp)=0;
-    printf(" funçao comp=%d mov=%d\n",*comp,*mov);
     srand(semente);
     for ( int i = 0; i < N; i++){
          vet[i] = rand() % N;
@@ -34,9 +33,7 @@ int main(int argc, char *argv[]) {
     escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);
 
     cont++;
-    printf("comp=%d mov=%d\n",comp,mov);
     resetar_vetor(vet,N,semente,&comp,&mov);
-     printf("comp=%d mov=%d\n",comp,mov);
     tempo_execu =  clock();
     QuickSort_Inteligente(vet,N,&comp,&mov);
     tempo_execu =  clock()- tempo_execu;
