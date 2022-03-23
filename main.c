@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #include "Libs/Quicksort_lib.h"
 #include "Libs/arquivos.h"
-void resetar_vetor(int *vet, int N, int semente){
+void resetar_vetor(int *vet, int N, int semente, int *comp ,int *mov){
+    (*mov)=0;
+    (*comp)=0;
+    printf(" funçao comp=%d mov=%d\n",*comp,*mov);
     srand(semente);
     for ( int i = 0; i < N; i++){
          vet[i] = rand() % N;
@@ -23,7 +26,7 @@ int main(int argc, char *argv[]) {
     printf("Nome arquivo: %s\n", argv[3]);
 
     srand(semente);
-    resetar_vetor(vet,N,semente);
+    resetar_vetor(vet,N,semente,&comp,&mov);
     
     tempo_execu =  clock();
     Quicksort_Recursivo(vet, 0, N-1, &comp, &mov);
@@ -31,14 +34,16 @@ int main(int argc, char *argv[]) {
     escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);
 
     cont++;
-    resetar_vetor(vet,N,semente);
+    printf("comp=%d mov=%d\n",comp,mov);
+    resetar_vetor(vet,N,semente,&comp,&mov);
+     printf("comp=%d mov=%d\n",comp,mov);
     tempo_execu =  clock();
     QuickSort_Inteligente(vet,N,&comp,&mov);
     tempo_execu =  clock()- tempo_execu;
     escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);
 
     cont++;
-    resetar_vetor(vet,N,semente);
+    resetar_vetor(vet,N,semente,&comp,&mov);
     tempo_execu =  clock();
     Quicksort_Insercao10(vet,0,N-1,&comp,&mov);
     tempo_execu =  clock()- tempo_execu;
@@ -46,28 +51,28 @@ int main(int argc, char *argv[]) {
 
 
     cont++;
-    resetar_vetor(vet,N,semente);
+    resetar_vetor(vet,N,semente,&comp,&mov);
     tempo_execu =  clock();
     Quicksort_Insercao100(vet,0,N-1,&comp,&mov);
     tempo_execu =  clock()- tempo_execu;
     escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);
 
     cont++;
-    resetar_vetor(vet,N,semente);
+    resetar_vetor(vet,N,semente,&comp,&mov);
     tempo_execu =  clock();
     QuickSort_Iterativo(vet, 0, N-1, &comp, &mov);
     tempo_execu =  clock()- tempo_execu;
     escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);
     
     cont++;
-    resetar_vetor(vet,N,semente);
+    resetar_vetor(vet,N,semente,&comp,&mov);
     tempo_execu =  clock();
     Ordena_Mediana3(0,N,vet,&comp,&mov);
     tempo_execu =  clock()- tempo_execu;
     escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);
     
     cont++;
-    resetar_vetor(vet,N,semente);
+    resetar_vetor(vet,N,semente,&comp,&mov);
     tempo_execu =  clock();
     Ordena_Mediana5(0, N, vet, &comp, &mov);
     tempo_execu =  clock()- tempo_execu;
