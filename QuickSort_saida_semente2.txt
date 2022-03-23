@@ -1,0 +1,8 @@
+N=1000
+Rercusivo: Tempo = 0.000399 segundos, Comparaçoes = 22040, Movimentaçoes = 8472
+inteligente: Tempo = 0.000371 segundos, Comparaçoes = 16265, Movimentaçoes = 8496
+Insercao10: Tempo = 0.000957 segundos, Comparaçoes = 10526, Movimentaçoes = 16102
+Insercao100: Tempo = 0.000384 segundos, Comparaçoes = 19073, Movimentaçoes = 43020
+Iterativo: Tempo = 0.000295 segundos, Comparaçoes = 11299, Movimentaçoes = 6332
+Mediana3: Tempo = 0.000400 segundos, Comparaçoes = 22948, Movimentaçoes = 8250
+Mediana5: Tempo = 0.000339 segundos, Comparaçoes = 16092, Movimentaçoes = 8256

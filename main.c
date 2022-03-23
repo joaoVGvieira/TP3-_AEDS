@@ -20,10 +20,7 @@ int main(int argc, char *argv[]) {
     N=atoi(argv[2]);
     vet = (int *) malloc(N * sizeof(int));
     semente = atoi(argv[1]);
-    printf("Semente: %d\n", semente);
-    printf("N: %d\n", N);
-    printf("Nome arquivo: %s\n", argv[3]);
-
+    
     srand(semente);
     resetar_vetor(vet,N,semente,&comp,&mov);
     
