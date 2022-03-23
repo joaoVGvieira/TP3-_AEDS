@@ -9,9 +9,9 @@ void Ordena_Inteligente(int inicio, int fim, int vet[],int esq, int dir,int *com
     int i,j;
     //dividir o vetor no meio selecionando o pivo
     Particao_Inteligente(inicio, fim, &i, &j, vet,comp,mov);
-    //chama funçao (*comp)ara para contar o lado esq e dir do pivo.
+    //chama funçao compara para contar o lado esq e dir do pivo.
     Compara_Inteligente(inicio,fim,&esq,&dir);
-    // ifs abaixo vai (*comp)ara todos os casos possivei esquerda menor, direita menor ou igual os numeros do contador
+    // ifs abaixo vai compara todos os casos possivei esquerda menor, direita menor ou igual os numeros do contador
     if (esq < dir)
     {   
         (*comp)++;
