@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
     cont++;
     resetar_vetor(vet,N,semente,&comp,&mov);
     tempo_execu =  clock();
-    QuickSort_Inteligente(vet,N,&comp,&mov);
+    QuickSort_Inteligente(vet,0,N-1,&comp,&mov);
     tempo_execu =  clock()- tempo_execu;
     escreve_arquivo_tempo(vet, tempo_execu, N, comp, mov, argv[3],cont);
 

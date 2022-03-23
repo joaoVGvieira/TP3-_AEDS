@@ -1,90 +1,61 @@
 #include "../Libs/Quicksort_lib.h"
 #include <stdio.h>
 #include <stdlib.h>
-void QuickSort_Inteligente(int vet[], int n,int *comp, int *mov){
-    Ordena_Inteligente(0, n-1, vet,0,0,comp,mov);
-}
-void Ordena_Inteligente(int inicio, int fim, int vet[],int esq, int dir,int *comp, int *mov)
+void QuickSort_Inteligente(int vet[],int inicio, int fim,int *comp, int *mov)
 {
-    int i,j;
-    //dividir o vetor no meio selecionando o pivo
-    Particao_Inteligente(inicio, fim, &i, &j, vet,comp,mov);
-    //chama funçao compara para contar o lado esq e dir do pivo.
-    Compara_Inteligente(inicio,fim,&esq,&dir);
-    // ifs abaixo vai compara todos os casos possivei esquerda menor, direita menor ou igual os numeros do contador
-    if (esq < dir)
-    {   
-        (*comp)++;
-        esq++;
-        if (esq < dir){
-            (*comp)++;
-            Ordena_Inteligente(inicio, j, vet,esq,dir,comp,mov);
-        }        
-    }
-    if (dir < esq)
-    {           
-        (*comp)++;
-        dir--;
-        if (dir > esq) {
-            (*comp)++;
-            Ordena_Inteligente(i, fim, vet,esq,dir,comp,mov);
-        }
-    }
-    if(esq==dir)
-    {
-        (*comp)++;
-        if (inicio < j){
-            (*comp)++;
-            Ordena_Inteligente(inicio, j, vet,esq,dir,comp,mov);
-        } 
-        if (i < fim) {
-            (*comp)++;
-            Ordena_Inteligente(i, fim, vet,esq,dir,comp,mov);
-        }      
-    }
-}
-void Compara_Inteligente(int inicio, int fim, int *esq, int *dir){
-    int i,j,meio;
-    i = inicio;
-    j = fim;
-    meio=(i + j)/2;
-    for ( int k = i; k < meio; k++)
-    {
-        *esq+=1;
-    }
-    for ( int h = j; h > meio; h--)
-    {
-        *dir+=1;
- 
-    } 
-}
-void Particao_Inteligente(int inicio, int fim,int *i, int *j, int *vet,int *comp, int *mov){
-    int pivo, aux;
-    *i = inicio;
-    *j = fim;
-    pivo = vet[(*i + *j)/2];
-    do
-    {
-        (*comp)++;
-        while (pivo > vet[*i]){
-            (*comp)++;
-            (*i)++;
-        }
-        while (pivo < vet[*j]) {
-            (*comp)++;
-            (*j)--;
-        }
-        if (*i <= *j)
-        {
-            (*comp)++;
-            aux = vet[*i];
-            vet[*i] = vet[*j];
-            vet[*j] = aux;
-            (*mov)++;
-            (*i)++;
-            (*j)--;
-        }
-    }while (*i <= *j);
+   int pivo, aux, i, j, meio;
+   i = inicio;
+   j = fim;
+   
+   meio = ((i + j) / 2);
+   pivo = vet[meio];
+   do{
+      while (vet[i] < pivo){
+         (*comp)++;
+         i+= 1;
+      } 
+      while (vet[j] > pivo){
+          (*comp)++;
+          j-= 1;
+      } 
+      if(i <= j){
+         (*comp)++; 
+         aux = vet[i];
+         vet[i] = vet[j];
+         vet[j] = aux;
+         (*mov)++;
+         i+= 1;
+         j-= 1;
+      }
+   }while(j > i);
+   (*comp)++;
+   if (fim-j < inicio-i)
+   {
+       (*comp)++;
+       if (j > inicio)
+       {
+           QuickSort_Inteligente(vet, inicio, j,comp,mov);
+       }
+       (*comp)++;
+       if (i < fim)
+       {
+           QuickSort_Inteligente(vet, i, fim,comp,mov);
+       }
+       
+   }
+   else
+   {   
+       (*comp)++; 
+       if (i < fim)
+       {
+           QuickSort_Inteligente(vet, i, fim,comp,mov);
+       }
+       (*comp)++;
+       if (j > inicio)
+       {
+           QuickSort_Inteligente(vet, inicio, j,comp,mov);
+       }
+   }
 }
 
 //Inserçao 10

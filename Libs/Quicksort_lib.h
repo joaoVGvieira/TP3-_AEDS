@@ -1,8 +1,5 @@
 /*Quicksorts e funções subsequentes*/
-void QuickSort_Inteligente(int vet[], int n,int *comp, int *mov);
-void Compara_Inteligente(int inicio, int fim, int *esq, int *dir);
-void Ordena_Inteligente(int inicio, int fim, int vet[],int esq, int dir,int *comp, int *mov);
-void Particao_Inteligente(int inicio, int fim,int *i, int *j, int *vet,int *comp, int *mov);
+void QuickSort_Inteligente(int vet[], int inicio,int fim,int *comp, int *mov);
 
 void Quicksort_Insercao10(int vetor[], int inicio, int fim,int *comp, int *mov);
 int Particao_Insercao10(int vetor[],int inicio, int fim,int *comp, int *mov);

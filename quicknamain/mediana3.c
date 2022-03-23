@@ -4,7 +4,6 @@
 #define N 5
 int comp = 0, mov = 0;
 
-
 void Particao(int Esq, int Dir, int *i, int *j, int *A){
 
     int pivo, aux;
