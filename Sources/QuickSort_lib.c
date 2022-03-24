@@ -44,6 +44,7 @@ void QuickSort_Inteligente(int vet[],int inicio, int fim,int *comp, int *mov)
            (*comp)++;
            QuickSort_Inteligente(vet, inicio, j,comp,mov);
        }
+       (*comp)++;
        if (i < fim)
        {   (*comp)++; 
            QuickSort_Inteligente(vet, i, fim,comp,mov);
@@ -57,6 +58,7 @@ void QuickSort_Inteligente(int vet[],int inicio, int fim,int *comp, int *mov)
        {    (*comp)++;
            QuickSort_Inteligente(vet, i, fim,comp,mov);
        }
+       (*comp)++;
        if (j > inicio)
        {
            (*comp)++;
